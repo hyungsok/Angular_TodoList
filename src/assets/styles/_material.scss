@@ -1,4 +1,8 @@
 body {
+  // CSS 우선순위를 높여서 처리하면 오버라이팅이 가능하다.
+  //    1. inline
+  //    2. internal
+  //    3. external
   .mat-card {
     padding: 0;
     margin: ($gutter/2);

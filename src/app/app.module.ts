@@ -7,15 +7,20 @@ import {IndexComponent} from './index/index.component';
 import {HomeComponent} from './home/home.component';
 import {JqueryComponent} from './jquery/jquery.component';
 import {RouterModule, Routes} from '@angular/router';
+import {AugularComponent} from './augular/augular.component';
 
 const routes: Routes = [
+  // 사용자 사이트 : 부모, 자식간의 트리형식으로 해당 패스의 뷰를 DI해주는 방식임
   {
     path: '', component: IndexComponent,
     children: [
       {path: '', component: HomeComponent},
-      {path: 'jquery', component: JqueryComponent}
+      {path: 'jquery', component: JqueryComponent},
+      {path: 'angular', component: AugularComponent}
     ]
-  }
+  },
+  // 관리자 사이트 (LazyLoading)
+  // {path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'}
 ];
 
 @NgModule({
@@ -23,7 +28,8 @@ const routes: Routes = [
     AppComponent,
     IndexComponent,
     HomeComponent,
-    JqueryComponent
+    JqueryComponent,
+    AugularComponent
   ],
   imports: [
     BrowserModule,

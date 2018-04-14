@@ -1,19 +1,35 @@
-<mat-card class="example-card">
+<mat-card>
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    <mat-card-title>
+      My Todo
+    </mat-card-title>
   </mat-card-header>
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
   <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
+    <div fxLayout="row">
+      <input matInput placeholder="Add Todo Item" id="input_todo" fxFlex="5 1 auto">
+      <button mat-raised-button color="primary" fxFlex="1 1 auto">추가</button>
+    </div>
+    <br/>
+
+    <div class="table">
+      <div class="tr">
+        <div class="th">완료</div>
+        <div class="th">todo</div>
+        <div class="th">생성일</div>
+        <div class="th">수정일</div>
+        <div class="th"></div>
+      </div>
+      <div class="tr" *ngFor="let todo of todoList">
+        <div class="td">{{todo.isFinished ? '완료' : '미완료'}}</div>
+        <div class="td">{{todo.todo}}</div>
+        <div class="td">{{todo.created}}</div>
+        <div class="td">{{todo.updated}}</div>
+        <div class="td">
+          <button mat-raised-button color="warn">삭제</button>
+        </div>
+      </div>
+    </div>
+
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
 </mat-card>
+

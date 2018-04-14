@@ -11,6 +11,8 @@ import {AugularComponent} from './augular/augular.component';
 import {MatButtonModule, MatCardModule, MatIconModule, MatMenuModule, MatToolbarModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {HttpClientModule} from '@angular/common/http';
+import {UserService} from './user.service';
 
 const routes: Routes = [
   // 사용자 사이트 : 부모, 자식간의 트리형식으로 해당 패스의 뷰를 DI해주는 방식임
@@ -36,6 +38,8 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    // import HttpClientModule after BrowserModule.
+    HttpClientModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     MatToolbarModule,
@@ -45,7 +49,7 @@ const routes: Routes = [
     MatCardModule,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 

@@ -7,12 +7,21 @@ import {IndexComponent} from './index/index.component';
 import {HomeComponent} from './home/home.component';
 import {JqueryComponent} from './jquery/jquery.component';
 import {RouterModule, Routes} from '@angular/router';
-import {AugularComponent} from './augular/augular.component';
-import {MatButtonModule, MatCardModule, MatIconModule, MatMenuModule, MatToolbarModule} from '@angular/material';
+import {AngularComponent} from './angular/angular.component';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatMenuModule,
+  MatToolbarModule
+} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {HttpClientModule} from '@angular/common/http';
 import {UserService} from './user.service';
+import {FormsModule} from '@angular/forms';
 
 const routes: Routes = [
   // 사용자 사이트 : 부모, 자식간의 트리형식으로 해당 패스의 뷰를 DI해주는 방식임
@@ -21,7 +30,7 @@ const routes: Routes = [
     children: [
       {path: '', component: HomeComponent},
       {path: 'jquery', component: JqueryComponent},
-      {path: 'angular', component: AugularComponent}
+      {path: 'angular', component: AngularComponent}
     ]
   },
   // 관리자 사이트 (LazyLoading)
@@ -34,7 +43,7 @@ const routes: Routes = [
     IndexComponent,
     HomeComponent,
     JqueryComponent,
-    AugularComponent
+    AngularComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +56,9 @@ const routes: Routes = [
     MatMenuModule,
     MatIconModule,
     MatCardModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
     FlexLayoutModule
   ],
   providers: [UserService],

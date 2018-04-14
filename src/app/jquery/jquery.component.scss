@@ -1,0 +1,25 @@
+$buttonColor: #337ab7;
+$buttonDark: darken($buttonColor, 10%);
+$buttonDarker: darken($buttonDark, 10%);
+
+button.active {
+  background-color: $buttonColor;
+  border: 0;
+  padding: 0.5rem;
+  color: white;
+  box-shadow: 4px 4px 6px $buttonDark;
+
+  &:hover {
+    background: $buttonDark;
+    box-shadow: 4px 4px 6px $buttonDarker;
+  }
+
+  &:active {
+    box-shadow: none;
+    -webkit-transform: translate(4px, 4px);
+    -moz-transform: translate(4px, 4px);
+    -ms-transform: translate(4px, 4px);
+    -o-transform: translate(4px, 4px);
+    transform: translate(4px, 4px);
+  }
+}

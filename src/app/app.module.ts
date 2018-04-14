@@ -8,6 +8,7 @@ import {HomeComponent} from './home/home.component';
 import {JqueryComponent} from './jquery/jquery.component';
 import {RouterModule, Routes} from '@angular/router';
 import {AugularComponent} from './augular/augular.component';
+import {MatToolbarModule} from '@angular/material';
 
 const routes: Routes = [
   // 사용자 사이트 : 부모, 자식간의 트리형식으로 해당 패스의 뷰를 DI해주는 방식임
@@ -33,7 +34,8 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)],
+    RouterModule.forRoot(routes),
+    MatToolbarModule],
   providers: [],
   bootstrap: [AppComponent]
 })

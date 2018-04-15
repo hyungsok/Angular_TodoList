@@ -8,6 +8,7 @@ import {TodoVO} from '../domain/todo.vo';
   templateUrl: './angular.component.html',
   styleUrls: ['./angular.component.scss']
 })
+
 export class AngularComponent implements OnInit {
   todoList: TodoVO[] = [];
   newTodo = new TodoVO();

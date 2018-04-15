@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../environments/environment';
-import {TodoVO} from '../domain/todo.vo.ts';
+import {TodoVO} from './domain/todo.vo';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class UserService {
@@ -15,12 +16,12 @@ export class UserService {
     });
   }
 
-  addTodo(params: TodoVO) {
-    return this.http.post(this.SERVER + '/api/todo', JSON.stringify(params), {headers: this.headers});
+  getTodoList(): Observable<TodoVO[]> {
+    return this.http.get<TodoVO[]>(this.SERVER + '/api/todo');
   }
 
-  getTodoList() {
-    return this.http.get(this.SERVER + '/api/todo');
+  addTodo(params: TodoVO): Observable<TodoVO> {
+    return this.http.post<TodoVO>(this.SERVER + '/api/todo', params, {headers: this.headers});
   }
 }
 

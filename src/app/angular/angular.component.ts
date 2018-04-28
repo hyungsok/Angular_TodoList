@@ -25,8 +25,8 @@ export class AngularComponent implements OnInit {
       });
   }
 
-  add_todo() {
-    console.log('add_todo click');
+  addTodo() {
+    console.log('addTodo click');
     this.userService.addTodo(this.newTodo)
       .subscribe(body => {
         console.log('body : ' + body);

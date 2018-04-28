@@ -1,12 +1,21 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../user.service';
 import {TodoVO} from '../domain/todo.vo';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 
 @Component({
   selector: 'app-augular',
   templateUrl: './angular.component.html',
-  styleUrls: ['./angular.component.scss']
+  styleUrls: ['./angular.component.scss'],
+  animations: [
+    trigger('flyInOut', [
+      state('in', style({opacity: 1, transform: 'translate(0, 0)'})),
+      transition('void => in', [
+        style({opacity: 0, transform: 'translate(-100%, 0)'}),
+        animate(1000)])
+    ])
+  ]
 })
 
 export class AngularComponent implements OnInit {

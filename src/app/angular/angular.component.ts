@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../user.service';
 import {TodoVO} from '../domain/todo.vo';
-import {animate, state, style, transition, trigger} from '@angular/animations';
+import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 
 
 @Component({
@@ -13,7 +13,14 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
       state('in', style({opacity: 1, transform: 'translate(0, 0)'})),
       transition('void => in', [
         style({opacity: 0, transform: 'translate(-100%, 0)'}),
-        animate(1000)])
+        animate(1000)]),
+      transition('in => void', [
+        animate(1000, keyframes([
+          style({opacity: 1, transform: 'translate(0, 0)'}),
+          style({opacity: 1, transform: 'translate(-100px, 0)'}),
+          style({opacity: 0, transform: 'translate(100%, 0)'})
+        ]))
+      ])
     ])
   ]
 })

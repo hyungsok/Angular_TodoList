@@ -55,9 +55,35 @@ export class AngularComponent implements OnInit {
   }
 
   restore(todo: TodoVO) {
+    console.log('restore click');
     const tempTodo = this.tempTodoList.get(todo.todo_id);
     Object.assign(todo, tempTodo);
 
     todo.isEdited = false;
   }
+
+  modify(todo: TodoVO) {
+    console.log('modify click');
+    this.userService.modifyTodo(todo)
+      .subscribe(body => {
+        console.log('body : ' + body);
+        Object.assign(todo, body);
+        todo.isEdited = false;
+      });
+  }
+
+  remove(todo: TodoVO, index: number) {
+    console.log('remove click : ' + index);
+    const result = confirm(index + ' : ' + todo.todo + ' 을(를) 삭제하시겠습니까?');
+    if (result) {
+      this.userService.removeTodo(todo.todo_id)
+        .subscribe(resultVO => {
+          console.log('response : ' + resultVO);
+          if (resultVO.result === 0) {
+            this.todoList.splice(index, 1);
+          }
+        });
+    }
+  }
+
 }

@@ -1,3 +1,9 @@
-
+body .mat-expansion-panel {
+  background: #eeeeee; }
+body .mat-expansion-panel-body {
+  background: white;
+  padding: 8px 24px 8px; }
+body .mat-expansion-panel-spacing {
+  margin: 0; }
 
 /*# sourceMappingURL=index.component.css.map */

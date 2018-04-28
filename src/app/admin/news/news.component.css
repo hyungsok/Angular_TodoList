@@ -1,3 +1,13 @@
-
+.board-box {
+  cursor: pointer;
+  border-bottom: 1px solid #aaaaaa;
+  padding: 0 0 0.3rem 0; }
+  .board-box p {
+    margin: 0.5rem 0; }
+    .board-box p span {
+      margin: 0 1rem;
+      font-size: 1rem; }
+      .board-box p span:hover {
+        background-color: #eeeeee; }
 
 /*# sourceMappingURL=news.component.css.map */

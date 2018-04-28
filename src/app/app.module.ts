@@ -23,6 +23,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {UserService} from './user.service';
 import {FormsModule} from '@angular/forms';
 import {HighlightDirective} from './highlight.directive';
+import {MydatePipe} from './mydate.pipe';
 
 const routes: Routes = [
   // 사용자 사이트 : 부모, 자식간의 트리형식으로 해당 패스의 뷰를 DI해주는 방식임
@@ -43,6 +44,7 @@ const routes: Routes = [
     AppComponent,
     IndexComponent,
     HighlightDirective,
+    MydatePipe,
     HomeComponent,
     JqueryComponent,
     AngularComponent

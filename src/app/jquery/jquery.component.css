@@ -1,0 +1,25 @@
+button.active {
+  background-color: #337ab7;
+  border: 0;
+  padding: 0.5rem;
+  color: white;
+  box-shadow: 4px 4px 6px #285f8f; }
+  button.active:hover {
+    background: #285f8f;
+    box-shadow: 4px 4px 6px #1d4567; }
+  button.active:active {
+    box-shadow: none;
+    -webkit-transform: translate(4px, 4px);
+    -moz-transform: translate(4px, 4px);
+    -ms-transform: translate(4px, 4px);
+    -o-transform: translate(4px, 4px);
+    transform: translate(4px, 4px); }
+
+.example-card {
+  max-width: 400px; }
+
+.example-header-image {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover; }
+
+/*# sourceMappingURL=jquery.component.css.map */

@@ -36,7 +36,7 @@ const routes: Routes = [
     ]
   },
   // 관리자 사이트 (LazyLoading)
-  // {path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'}
+  {path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'}
 ];
 
 @NgModule({

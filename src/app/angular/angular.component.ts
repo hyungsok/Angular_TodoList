@@ -21,6 +21,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 export class AngularComponent implements OnInit {
   todoList: TodoVO[] = [];
   newTodo = new TodoVO();
+  tempTodoList = new Map<number, TodoVO>();
 
   constructor(private userService: UserService) {
   }
@@ -45,4 +46,18 @@ export class AngularComponent implements OnInit {
     this.newTodo = new TodoVO();
   }
 
+  save(todo: TodoVO) {
+    todo.isEdited = true;
+
+    // deep copy를 하는 방법 : es6의 spread 연산자
+    const tempTodo = Object.assign({}, todo);
+    this.tempTodoList.set(tempTodo.todo_id, tempTodo);
+  }
+
+  restore(todo: TodoVO) {
+    const tempTodo = this.tempTodoList.get(todo.todo_id);
+    Object.assign(todo, tempTodo);
+
+    todo.isEdited = false;
+  }
 }

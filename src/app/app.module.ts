@@ -10,7 +10,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {AngularComponent} from './angular/angular.component';
 import {
   MatButtonModule,
-  MatCardModule,
+  MatCardModule, MatCheckboxModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
@@ -56,6 +56,7 @@ const routes: Routes = [
     MatMenuModule,
     MatIconModule,
     MatCardModule,
+    MatCheckboxModule,
     FormsModule,
     MatFormFieldModule,
     MatInputModule,

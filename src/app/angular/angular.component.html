@@ -10,7 +10,9 @@
         <mat-form-field fxFlex="4 1 auto">
           <input matInput placeholder="할일" id="input_todo" #name="ngModel"
                  [(ngModel)]="newTodo.todo" required name="todo">
-          <mat-hint align="start" style="color: red;">{{!name.value? '할일을 입력하세요' : ''}}</mat-hint>
+          <mat-hint align="start" style="color: red;">
+            {{!name.value? '할일을 입력하세요' : ''}}
+          </mat-hint>
         </mat-form-field>
         <button type="submit" mat-raised-button color="primary" fxFlex="1 1 auto"
                 class="active" [disabled]="!myForm.form.valid">추가
@@ -27,15 +29,32 @@
         <div class="th">수정일</div>
         <div class="th"></div>
       </div>
-      <div class="tr" *ngFor="let todo of todoList" [@flyInOut]="'in'">
-        <div class="td">{{todo.isFinished ? '완료' : '미완료'}}</div>
-        <div class="td">{{todo.todo}}</div>
-        <div class="td">{{todo.created}}</div>
-        <div class="td">{{todo.updated}}</div>
-        <div class="td">
-          <button mat-raised-button color="warn">삭제</button>
+      <ng-template ngFor let-todo [ngForOf]="todoList">
+        <div class="tr" [@flyInOut]="'in'" *ngIf="!todo.isEdited">
+          <div class="td">{{todo.isFinished ? '완료' : '미완료'}}</div>
+          <div class="td">{{todo.todo}}</div>
+          <div class="td">{{todo.created}}</div>
+          <div class="td">{{todo.updated}}</div>
+          <div class="td">
+            <button mat-raised-button color="primary" (click)="save(todo)">수정</button>
+            <button mat-raised-button color="warn">삭제</button>
+          </div>
         </div>
-      </div>
+        <div class="tr" *ngIf="todo.isEdited">
+          <div class="td">
+            <mat-checkbox [(ngModel)]="todo.isFinished">완료유무</mat-checkbox>
+          </div>
+          <div class="td">
+            <input [(ngModel)]="todo.todo" />
+          </div>
+          <div class="td">{{todo.created}}</div>
+          <div class="td">{{todo.updated}}</div>
+          <div class="td">
+            <button mat-raised-button color="primary">저장</button>
+            <button mat-raised-button color="warn" (click)="restore(todo)">취소</button>
+          </div>
+        </div>
+      </ng-template>
     </div>
 
   </mat-card-content>

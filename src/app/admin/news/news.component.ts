@@ -13,7 +13,7 @@ export class NewsComponent implements OnInit {
   page: PageVO;
 
   constructor(private adminService: AdminService) {
-    this.page = new PagzeVO(0, 5, 0);
+    this.page = new PageVO(0, 5, 0);
   }
 
   ngOnInit() {

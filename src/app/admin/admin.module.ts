@@ -7,11 +7,14 @@ import {RouterModule, Routes} from '@angular/router';
 import {MatButtonModule, MatCardModule, MatExpansionModule, MatPaginatorModule, MatToolbarModule} from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {AdminService} from './admin.service';
+import {ViewComponent} from './news/view/view.component';
 
 const routes: Routes = [{
   path: '', component: IndexComponent, children: [
-    {path: '', component: HomeComponent},     // url경로 '/admin'
-    {path: 'news', component: NewsComponent}  // url경로 '/admin/news'
+    {path: '', component: HomeComponent},                     // url경로 '/admin'
+    {path: 'news', component: NewsComponent, children: [      // url경로 '/admin/news'
+        {path: 'view/:news_id', component: ViewComponent},    // url경로 '/admin/news/view/1'
+      ]}
   ]
 }];
 
@@ -26,7 +29,7 @@ const routes: Routes = [{
     MatExpansionModule,
     MatPaginatorModule
   ],
-  declarations: [IndexComponent, HomeComponent, NewsComponent],
+  declarations: [IndexComponent, HomeComponent, NewsComponent, ViewComponent],
   providers: [AdminService]
 })
 export class AdminModule {

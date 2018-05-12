@@ -6,7 +6,7 @@ import {NewsComponent} from './news/news.component';
 import {RouterModule, Routes} from '@angular/router';
 import {
   MatButtonModule,
-  MatCardModule,
+  MatCardModule, MatDialogModule,
   MatExpansionModule,
   MatFormFieldModule,
   MatIconModule, MatInputModule,
@@ -19,6 +19,7 @@ import {ViewComponent} from './news/view/view.component';
 import {WriteComponent} from './news/write/write.component';
 import {CKEditorModule} from 'ng2-ckeditor';
 import {FormsModule} from '@angular/forms';
+import {ViewDialogComponent} from './news/view/view.dialog.component';
 
 const routes: Routes = [{
   path: '', component: IndexComponent, children: [
@@ -47,10 +48,12 @@ const routes: Routes = [{
     FlexLayoutModule,
     MatExpansionModule,
     MatPaginatorModule,
+    MatDialogModule,
     CKEditorModule
   ],
-  declarations: [IndexComponent, HomeComponent, NewsComponent, ViewComponent, WriteComponent],
-  providers: [AdminService]
+  declarations: [IndexComponent, HomeComponent, NewsComponent, ViewComponent, WriteComponent, ViewDialogComponent],
+  providers: [AdminService],
+  entryComponents: [ViewDialogComponent]
 })
 export class AdminModule {
 }
